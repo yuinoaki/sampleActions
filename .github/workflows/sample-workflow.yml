@@ -1,0 +1,34 @@
+# GitHub Actions サンプルワークフロー
+# このワークフローはGitHub Actions初心者向けのサンプルです
+
+name: Sample Workflow
+
+# ワークフローのトリガー条件
+on:
+  # mainブランチへのpush時に実行
+  push:
+    branches:
+      - main
+  # プルリクエスト時に実行
+  pull_request:
+    branches:
+      - main
+  # 手動実行を許可
+  workflow_dispatch:
+
+jobs:
+  # ジョブ名
+  run-sample-script:
+    # GitHubホステッドランナーを使用（Ubuntu最新版）
+    runs-on: ubuntu-latest
+
+    steps:
+      # リポジトリのコードをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # toolsディレクトリ内のシェルスクリプトを実行
+      - name: Run sample script
+        run: |
+          chmod +x tools/sample.sh
+          ./tools/sample.sh
