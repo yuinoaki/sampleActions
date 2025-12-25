@@ -27,8 +27,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # toolsディレクトリ内のシェルスクリプトを実行
+      # scriptディレクトリ内のシェルスクリプトを実行
       - name: Run sample script
         run: |
-          chmod +x tools/sample.sh
-          ./tools/sample.sh
+          chmod +x script/sample.sh
+          ./script/sample.sh
